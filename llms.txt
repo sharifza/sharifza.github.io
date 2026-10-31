@@ -1,0 +1,58 @@
+# Sahand Sharifzadeh
+
+> Sahand Sharifzadeh is a Staff Research Scientist on the Gemini team at Google DeepMind in London, working on mid-training, reasoning and multimodal models.
+
+## Key facts
+- Sahand Sharifzadeh (سهند شریف زاده) is a Staff Research Scientist on the Gemini Team at Google DeepMind in London, United Kingdom (at Google DeepMind since Aug 2022).
+- Developed a key recipe used in Gemini 4 Argon as a core member of the Gemini Mid-Training team; contributed to the Gemini 2 and 3 model series.
+- Contributed to Flamingo (NeurIPS 2022) as a DeepMind research scientist intern in 2021; first author and co-lead of Synth² (2024).
+- Ph.D. in Computer Science, summa cum laude, LMU Munich (supervisor: Prof. Volker Tresp); M.Sc. TU Munich; B.Sc. Shahid Beheshti University.
+- 17,000+ citations on Google Scholar. Languages: Persian, English, Azerbaijani, German, Turkish.
+- Also known as: S. Sharifzadeh, S Sharifzadeh, سهند شریف زاده. Handles: @sharifza (GitHub), @sahandsharif (X).
+- Research themes: RL & post-training; Multimodal & vision–language; Computer vision; Knowledge graph embeddings; AI for Science; Robotics.
+
+## Profiles
+- [Google Scholar](https://scholar.google.com/citations?user=frzfxXYAAAAJ)
+- [LinkedIn](https://www.linkedin.com/in/sahandsharifzadeh)
+- [GitHub](https://github.com/sharifza)
+- [X](https://x.com/sahandsharif)
+- [ORCID](https://orcid.org/0000-0002-5534-4017)
+- [Website](https://sharifza.github.io/)
+
+## In his own words
+Items quoted from the site are in Sahand's own voice: "I" refers to Sahand Sharifzadeh.
+Building frontier multimodal and reasoning models across 12+ years of research in foundation models, computer vision, deep RL, and robotics. I drove the co-development and validation of a key recipe used in Gemini 4 series (Argon, Carbon) and contributed to the Gemini 2 and 3 model series and Flamingo. Across Gemini Mid-Training and Thinking, my research has spanned reinforcement learning efficiency and scaling, inference-time scaling, quantization in post-training, and strategic reasoning in games. I also co-led research on self-improving VLMs. Earlier, my research spanned looped graph transformers for iterative scene understanding (Classification by Attention, 2020), knowledge graph embeddings (PyKEEN), and deep inverse reinforcement learning for autonomous driving.
+
+## News
+- (2026-10) Gemini 4 Argon is now available to everyone, after its announcement on 30 September. I was a core member of the Gemini Mid-Training team and developed a key recipe used in the model. Source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/
+- (2026-09) Game Arena: strategic LLM evaluation in competitive environments (Kaggle). Technical report on arXiv. Source: https://arxiv.org/abs/2609.31473
+- (2025-07) Gemini 2.5 technical report released. Source: https://arxiv.org/abs/2507.06261
+- (2024-03) Synth²: self-improving VLMs with synthetic captions and image embeddings (co-lead). Source: https://arxiv.org/abs/2403.07750
+- (2024) Ultra-high-granularity detector simulation published in Nature Communications. Source: https://www.nature.com/articles/s41467-024-49104-4
+
+## Research writing
+- [Blog](https://sharifza.github.io/blog/): interactive research essays.
+- [A Looped Transformer for Scene Understanding, Six Years Later](https://sharifza.github.io/blog/classification-by-attention/) (published 2026-10-31): An interactive retrospective on Classification by Attention (2020), a looped graph Transformer for visual scene understanding, not an LLM. Explains weight-shared four-layer stack reuse, prediction-mediated schema feedback, original-image-feature reinjection, detached feedback during training, and evaluation with more passes than training. Compares these mechanisms with FAIR at Meta’s How to Loop Your Transformer (2026), distinguishing stack reuse and input anchoring from hidden-state recurrence, loop-specific adapters and cross-token parallel decoding. Credits Universal Transformers (2018); makes no absolute first claim or claim of direct influence. Includes a plain-language loop overview and measured per-assimilation SGCls recall curves reconstructed approximately from original Figure 4; marks the four-pass training boundary and evaluation up to eight passes. Cross-method mean recall is optional historical context, not the main evidence for looping.
+  - [The loop at a glance](https://sharifza.github.io/blog/classification-by-attention/#loop-at-a-glance)
+  - [Looped Transformer definition](https://sharifza.github.io/blog/classification-by-attention/#what-is-a-looped-transformer)
+  - [Comparison with Meta’s looped language models](https://sharifza.github.io/blog/classification-by-attention/#meta-looped-transformer-comparison)
+  - [Schema feedback versus hidden-state recurrence](https://sharifza.github.io/blog/classification-by-attention/#prediction-feedback-vs-hidden-state)
+  - [Measured recall versus assimilation passes](https://sharifza.github.io/blog/classification-by-attention/#fig5)
+
+## Selected publications
+- [Game Arena: Strategic LLM Evaluation in Competitive Environments](https://arxiv.org/abs/2609.31473): Technical Report · arXiv, 2026
+- [Gemini 2.5: Pushing the Frontier with Advanced Reasoning, Multimodality, Long Context, and Next Generation Agentic Capabilities](https://arxiv.org/abs/2507.06261): Technical Report, 2025
+- [Synth²: Boosting Visual-Language Models with Synthetic Captions and Image Embeddings](https://arxiv.org/abs/2403.07750): arXiv preprint, 2024 (First Author & Co-Lead)
+- [Ultra-High-Granularity Detector Simulation with Intra-Event Aware Generative Adversarial Network and Self-Supervised Relational Reasoning](https://www.nature.com/articles/s41467-024-49104-4): Nature Communications, 2024
+- [Flamingo: A Visual Language Model for Few-Shot Learning](https://arxiv.org/abs/2204.14198): NeurIPS, 2022 (10,000+ Citations)
+- [Relationformer: A Unified Framework for Image-to-Graph Generation](https://arxiv.org/abs/2203.10202): ECCV, 2022
+- [Bringing Light Into the Dark: A Large-scale Evaluation of Knowledge Graph Embedding Models Under a Unified Framework](https://arxiv.org/abs/2006.13365): IEEE TPAMI, 2021
+- [PyKEEN 1.0: A Python Library for Training and Evaluating Knowledge Graph Embeddings](https://jmlr.org/papers/v22/20-825.html): JMLR, 2021
+- [Automatic Image-Based Determination of Pruning Mass as a Determinant for Yield Potential in Grapevine Management and Breeding](https://doi.org/10.1111/ajgw.12243): Australian Journal of Grape and Wine Research, 2017 (Stereo 3D Reconstruction)
+- [Learning to Drive using Inverse Reinforcement Learning and Deep Q-Networks](https://arxiv.org/abs/1612.03653): NeurIPS Workshop on Deep Learning for Action and Interaction, 2016 (First Author)
+
+## Docs
+- [Full profile](https://sharifza.github.io/llms-full.txt): experience, research trajectory, talks, all 26 publications and awards
+- [Homepage](https://sharifza.github.io/)
+
+Last updated: 2026-10-31

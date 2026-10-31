@@ -1,0 +1,132 @@
+# Sahand Sharifzadeh
+
+> Sahand Sharifzadeh is a Staff Research Scientist on the Gemini team at Google DeepMind in London, working on mid-training, reasoning and multimodal models.
+
+## Key facts
+- Sahand Sharifzadeh (سهند شریف زاده) is a Staff Research Scientist on the Gemini Team at Google DeepMind in London, United Kingdom (at Google DeepMind since Aug 2022).
+- Developed a key recipe used in Gemini 4 Argon as a core member of the Gemini Mid-Training team; contributed to the Gemini 2 and 3 model series.
+- Contributed to Flamingo (NeurIPS 2022) as a DeepMind research scientist intern in 2021; first author and co-lead of Synth² (2024).
+- Ph.D. in Computer Science, summa cum laude, LMU Munich (supervisor: Prof. Volker Tresp); M.Sc. TU Munich; B.Sc. Shahid Beheshti University.
+- 17,000+ citations on Google Scholar. Languages: Persian, English, Azerbaijani, German, Turkish.
+- Also known as: S. Sharifzadeh, S Sharifzadeh, سهند شریف زاده. Handles: @sharifza (GitHub), @sahandsharif (X).
+- Research themes: RL & post-training; Multimodal & vision–language; Computer vision; Knowledge graph embeddings; AI for Science; Robotics.
+
+## Profiles
+- [Google Scholar](https://scholar.google.com/citations?user=frzfxXYAAAAJ)
+- [LinkedIn](https://www.linkedin.com/in/sahandsharifzadeh)
+- [GitHub](https://github.com/sharifza)
+- [X](https://x.com/sahandsharif)
+- [ORCID](https://orcid.org/0000-0002-5534-4017)
+- [Website](https://sharifza.github.io/)
+
+## In his own words
+Items quoted from the site are in Sahand's own voice: "I" refers to Sahand Sharifzadeh.
+Building frontier multimodal and reasoning models across 12+ years of research in foundation models, computer vision, deep RL, and robotics. I drove the co-development and validation of a key recipe used in Gemini 4 series (Argon, Carbon) and contributed to the Gemini 2 and 3 model series and Flamingo. Across Gemini Mid-Training and Thinking, my research has spanned reinforcement learning efficiency and scaling, inference-time scaling, quantization in post-training, and strategic reasoning in games. I also co-led research on self-improving VLMs. Earlier, my research spanned looped graph transformers for iterative scene understanding (Classification by Attention, 2020), knowledge graph embeddings (PyKEEN), and deep inverse reinforcement learning for autonomous driving.
+
+## News
+- (2026-10) Gemini 4 Argon is now available to everyone, after its announcement on 30 September. I was a core member of the Gemini Mid-Training team and developed a key recipe used in the model. Source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/
+- (2026-09) Game Arena: strategic LLM evaluation in competitive environments (Kaggle). Technical report on arXiv. Source: https://arxiv.org/abs/2609.31473
+- (2025-07) Gemini 2.5 technical report released. Source: https://arxiv.org/abs/2507.06261
+- (2024-03) Synth²: self-improving VLMs with synthetic captions and image embeddings (co-lead). Source: https://arxiv.org/abs/2403.07750
+- (2024) Ultra-high-granularity detector simulation published in Nature Communications. Source: https://www.nature.com/articles/s41467-024-49104-4
+
+## Research writing
+- [Blog](https://sharifza.github.io/blog/): interactive research essays.
+- [A Looped Transformer for Scene Understanding, Six Years Later](https://sharifza.github.io/blog/classification-by-attention/) (published 2026-10-31): An interactive retrospective on Classification by Attention (2020), a looped graph Transformer for visual scene understanding, not an LLM. Explains weight-shared four-layer stack reuse, prediction-mediated schema feedback, original-image-feature reinjection, detached feedback during training, and evaluation with more passes than training. Compares these mechanisms with FAIR at Meta’s How to Loop Your Transformer (2026), distinguishing stack reuse and input anchoring from hidden-state recurrence, loop-specific adapters and cross-token parallel decoding. Credits Universal Transformers (2018); makes no absolute first claim or claim of direct influence. Includes a plain-language loop overview and measured per-assimilation SGCls recall curves reconstructed approximately from original Figure 4; marks the four-pass training boundary and evaluation up to eight passes. Cross-method mean recall is optional historical context, not the main evidence for looping.
+  - [The loop at a glance](https://sharifza.github.io/blog/classification-by-attention/#loop-at-a-glance)
+  - [Looped Transformer definition](https://sharifza.github.io/blog/classification-by-attention/#what-is-a-looped-transformer)
+  - [Comparison with Meta’s looped language models](https://sharifza.github.io/blog/classification-by-attention/#meta-looped-transformer-comparison)
+  - [Schema feedback versus hidden-state recurrence](https://sharifza.github.io/blog/classification-by-attention/#prediction-feedback-vs-hidden-state)
+  - [Measured recall versus assimilation passes](https://sharifza.github.io/blog/classification-by-attention/#fig5)
+
+## Research trajectory
+### RL & post-training
+- (2014 – 2016, 2022) Inverse RL & Autonomous Driving: Motion planning with Inverse RL and Deep Q-Networks (NeurIPS 2016 Workshop, TUM CVG); Robotic pouring via curriculum RL (PourNet, IEEE/RSJ IROS 2022); 1st Place, ACM UIST 2013 Student Innovation Contest (Cool Print).
+- (2024 – 2025) Gemini Thinking (2 & 3 Series): Contributor across the Gemini 2 and 3 series; Drove research explorations on Thinking: inference-time scaling and post-training quantization.
+- (2025 – 2026) Gemini Games (Game Arena): Core contributor to Gemini Games: strategic reasoning and evaluation in games (Kaggle Game Arena).
+- (2025 – 2026) Gemini Mid-Training: Core member of the Gemini Mid-Training team at Google DeepMind; developed a key recipe used in Gemini 4 Argon.
+### Multimodal & vision–language
+- (2007) GooyaSaz (Persian OCR & TTS): 1st Place Khwarizmi Youth Innovation Award (Tehran, Dec 2007): Farsi Optical Character Recognition (OCR) and Text-to-Speech software converting scanned documents into speech for blind people.
+- (2019 – 2023) The Tensor Brain: The Tensor Brain: A Unified Theory of Perception, Memory, and Semantic Decoding (Neural Computation 2023 & CCN 2019).
+- (2018 – 2023) Scene Graphs & Relationformer: Ph.D. at LMU Munich, thesis graded Summa Cum Laude: First-author AAAI (2021, 2022) and ICPR (2021) papers on scene graph generation & depth maps; Relationformer (ECCV 2022); InstanceFormer video segmentation (AAAI 2023); Prior-RadGraphFormer (MICCAIW 2023).
+- (2021 – 2023) Flamingo VLM: Research Scientist Intern at DeepMind (Apr – Sep 2021): Flamingo visual language model for few-shot learning (NeurIPS 2022, 10,000+ citations); Do DALL-E and Flamingo Understand Each Other? (ICCV 2023).
+- (2024) Synth² (Self-Improving VLMs): Co-lead & first author at Google DeepMind: self-improving VLMs trained with synthetic captions and image embeddings.
+### Computer vision
+- (2014 – 2017) Stereo 3D Reconstruction: Variational stereo image 3D reconstruction for automatic determination of pruning mass in grapevine management and breeding (Australian Journal of Grape and Wine Research, 2017; TUM Computer Vision Group with Prof. Daniel Cremers).
+- (2015 – 2016) Medical Registration (MRFs): MRF-based image registration for intraoperative ultrasound brain-shift compensation towards robotic image-based neurosurgery (TUM CAMP, 2015–2016; 3rd HBP Workshop).
+### Knowledge graph embeddings
+- (2020 – 2021) Knowledge Graphs (PyKEEN): Co-author of: The PyKEEN knowledge graph embedding library (JMLR 2021); MemeGraphs (ICDAR 2023); Unsupervised KG-to-text generation (EMNLP 2020).
+- (2020 – 2021) Large-scale KGE Evaluation (TPAMI): Co-author of “Bringing Light Into the Dark”, a large-scale evaluation of knowledge graph embedding models under a unified framework (IEEE TPAMI 2021).
+### AI for Science
+- (2020, 2024) Genomics & Protein QA: MutLX platform for clone-specific genomic mutation discovery (eLife 2020); PQA: Zero-Shot Protein Question Answering for Free-Form Scientific Enquiry with Large Language Models (2024).
+- (2023 – 2024) Particle Detector Simulation: Ultra-High-Granularity Detector Simulation with Intra-Event Aware Generative Adversarial Network and Self-Supervised Relational Reasoning (Nature Communications 2024).
+### Robotics
+- (2006) Guard Robot (Safety Robotics): 1st Place Khwarizmi Youth Innovation Award (Tehran, Dec 2006): Design and build of an autonomous mobile robot for industrial safety applications.
+- (2011 – 2013) @Home Service Robot & Kinect HCI: Technical Team Lead of the Sharif @Home RoboCup Team: 1st Place AUTCup 2012, RobX & SUT TDP papers, gesture & speech recognition; Research Assistant at the NUS HCI Lab (2011): 3D Kinect hand gesture alignment.
+
+## Experience
+- **Staff Research Scientist — Gemini Team, Google DeepMind, London, United Kingdom (Aug 2022 – Present)**
+  - Gemini Mid-Training: Core member of the Gemini Mid-Training team; developed a key recipe used in Gemini 4 Argon.
+  - Gemini Thinking: Contributor across the Gemini 2 and 3 series; drove research explorations on Thinking (inference-time scaling and post-training quantization).
+  - Gemini Games: Core contributor; strategic reasoning and evaluation in games (Kaggle Game Arena).
+  - Synth²: Co-lead; self-improving VLMs trained with synthetic captions and image embeddings.
+- **Research Scientist Intern, DeepMind, London, United Kingdom (Apr 2021 – Sep 2021)**
+  - Contributed to Flamingo, a visual language model for few-shot multimodal learning (NeurIPS 2022, 10,000+ citations).
+- **Doctoral Researcher, LMU Munich, Munich, Germany (2018 – 2022)**
+  - Scene graph generation, Relationformer, The Tensor Brain, and co-author of the PyKEEN knowledge graph embedding library—with publications in Nature Communications, NeurIPS, ICCV, ECCV, AAAI, IEEE TPAMI, JMLR, eLife, EMNLP, and Neural Computation.
+- **Research and Teaching Assistant, Technical University of Munich (TUM), Munich, Germany (Oct 2013 – Apr 2017)**
+  - Autonomous Driving & Computer Vision (Computer Vision Group, Oct 2013 – Apr 2017): Motion planning with inverse RL and deep Q-networks; stereo 3D reconstruction for grapevine management; CUDA Programming TA (“GPU Programming for Computer Vision”, Sep 2014).
+  - Medical Imaging (Computer Aided Medical Procedures Lab — CAMP, May 2015 – Mar 2016): MRF-based image registration for ultrasound brain-shift compensation in neurosurgery.
+- **Technical Team Lead — @Home RoboCup Team, Sharif University of Technology, Tehran, Iran (2012 – 2013)**
+  - Design and build of a service robot; gesture and speech recognition.
+- **Research Assistant — HCI Lab, National University of Singapore (NUS), Singapore (2011)**
+  - Hand gesture recognition from Kinect data using sequence alignment.
+
+## Education
+- Ph.D. in Computer Science (Artificial Intelligence), Ludwig Maximilian University of Munich (LMU), Germany (2018 – 2022). Thesis: Summa Cum Laude (0.7 — The Highest Distinction). Thesis: On the Importance of Symbol Grounding and Top-Down Processes in Computer Vision;  Supervisor: Prof. Volker Tresp
+- M.Sc. in Computer Science, Technical University of Munich (TUM), Germany (2013 – 2016). Thesis: High Distinction (1.1). Major: Computer Vision, Robotics & AI;  Supervisors: Prof. Daniel Cremers, Prof. Rudolph Triebel
+- B.Sc. in Computer Science, Shahid Beheshti University, Iran (2008 – 2012). Thesis: High Distinction (20/20); Top 3 of Class. Thesis Supervisor: Prof. Shengdong Zhao (National University of Singapore)
+
+## Talks
+- [Transformers — Mediterranean Machine Learning (M2L) Summer School](https://www.youtube.com/watch?v=IvWHJvasGb0) (2023 · Google DeepMind): Invited summer school lecture covering Transformer architectures, attention mechanisms, and multimodal foundation models.
+- [Classification by Attention: Scene Graph Classification with Prior Knowledge](https://www.youtube.com/watch?v=X48xcWHj6xo) (2021 · LMU Munich): Advanced School of Computing (ASoC 2021, IPM) — talk on symbol grounding, attention mechanisms, and prior-knowledge scene graph generation (AAAI 2021).
+- [Learning to Drive using Deep Inverse Reinforcement Learning](https://www.youtube.com/watch?v=1aYnr6Ea-2E) (2016 · TUM Computer Vision Group): Human Brain Project School of Future Computing — presentation on deep inverse RL and Deep Q-Networks for autonomous driving.
+- [Intra-operative Ultrasound-Based Brain-Shift Compensation Towards Robotic Neurosurgery](https://www.youtube.com/watch?v=4P1vUrSMRJg) (2016 · TUM CAMP Lab): 3rd Human Brain Project Education Workshop on Future Computing (Manchester) — MRF-based medical image registration.
+
+## Publications
+- (2026) B Doerschuk-Tiberi, Y Yan, …, S Sharifzadeh, …, O Firat, M Chen. [Game Arena: Strategic LLM Evaluation in Competitive Environments](https://arxiv.org/abs/2609.31473). Technical Report · arXiv.
+- (2025) Gemini Team (incl. S Sharifzadeh). [Gemini 2.5: Pushing the Frontier with Advanced Reasoning, Multimodality, Long Context, and Next Generation Agentic Capabilities](https://arxiv.org/abs/2507.06261). Technical Report.
+- (2024) S Sharifzadeh, C Kaplanis, S Pathak, D Kumaran, A Ilic, J Mitrovic, C Blundell, A Banino. [Synth²: Boosting Visual-Language Models with Synthetic Captions and Image Embeddings](https://arxiv.org/abs/2403.07750). arXiv preprint. Role: First Author & Co-Lead.
+- (2024) B Hashemi, N Hartmann, S Sharifzadeh, J Kahn, T Kuhr. [Ultra-High-Granularity Detector Simulation with Intra-Event Aware Generative Adversarial Network and Self-Supervised Relational Reasoning](https://www.nature.com/articles/s41467-024-49104-4). Nature Communications.
+- (2024) EM Carrami, S Sharifzadeh. [PQA: Zero-Shot Protein Question Answering for Free-Form Scientific Enquiry with Large Language Models](https://arxiv.org/abs/2402.13653). arXiv preprint.
+- (2023) R Koner, T Hannan, S Shit, S Sharifzadeh, M Schubert, T Seidl, V Tresp. [InstanceFormer: An Online Video Instance Segmentation Framework](https://arxiv.org/abs/2208.10547). AAAI.
+- (2023) H Li, J Gu, R Koner, S Sharifzadeh, V Tresp. [Do DALL-E and Flamingo Understand Each Other?](https://arxiv.org/abs/2212.12249). ICCV.
+- (2023) V Tresp, S Sharifzadeh, H Li, D Konopatzki, Y Ma. [The Tensor Brain: A Unified Theory of Perception, Memory, and Semantic Decoding](https://arxiv.org/abs/2109.13392). Neural Computation.
+- (2023) V Kougia, S Fetzel, T Kirchmair, E Çano, SM Baharlou, S Sharifzadeh, B Roth. [MemeGraphs: Linking Memes to Knowledge Graphs](https://arxiv.org/abs/2305.18391). ICDAR.
+- (2023) Y Xiong, J Liu, K Zaripova, S Sharifzadeh, M Keicher, N Navab. [Prior-RadGraphFormer: A Prior-Knowledge-Enhanced Transformer for Generating Radiology Graphs from X-Rays](https://arxiv.org/abs/2303.13818). MICCAI Workshop (GRAIL).
+- (2022) JB Alayrac, J Donahue, P Luc, A Miech, …, S Sharifzadeh, et al. [Flamingo: A Visual Language Model for Few-Shot Learning](https://arxiv.org/abs/2204.14198). NeurIPS. Role: 10,000+ Citations.
+- (2022) S Shit, R Koner, B Wittmann, J Paetzold, I Ezhov, H Li, J Pan, S Sharifzadeh, et al. [Relationformer: A Unified Framework for Image-to-Graph Generation](https://arxiv.org/abs/2203.10202). ECCV.
+- (2022) S Sharifzadeh, SM Baharlou, M Schmitt, H Schütze, V Tresp. [Improving Scene Graph Classification by Exploiting Knowledge from Texts](https://arxiv.org/abs/2102.04760). AAAI. Role: First Author.
+- (2022) E Babaians, T Sharma, M Karimi, S Sharifzadeh, E Steinbach. [PourNet: Robust Robotic Pouring Through Curriculum and Curiosity-Based Reinforcement Learning](https://doi.org/10.1109/IROS47612.2022.9981195). IEEE/RSJ IROS.
+- (2022) S Sharifzadeh. [On the Importance of Symbol Grounding and Top-Down Processes in Computer Vision](https://edoc.ub.uni-muenchen.de/33176/). Ph.D. Dissertation · LMU Munich. Role: Summa Cum Laude.
+- (2021) S Sharifzadeh, SM Baharlou, V Tresp. [Classification by Attention: Scene Graph Classification with Prior Knowledge](https://arxiv.org/abs/2011.10084). AAAI. Role: First Author.
+- (2021) S Sharifzadeh, SM Baharlou, M Berrendorf, R Koner, V Tresp. [Improving Visual Relation Detection using Depth Maps](https://arxiv.org/abs/1905.00966). ICPR. Role: First Author.
+- (2021) M Ali, M Berrendorf, CT Hoyt, L Vermue, M Galkin, S Sharifzadeh, et al. [Bringing Light Into the Dark: A Large-scale Evaluation of Knowledge Graph Embedding Models Under a Unified Framework](https://arxiv.org/abs/2006.13365). IEEE TPAMI.
+- (2021) M Ali, M Berrendorf, CT Hoyt, L Vermue, S Sharifzadeh, et al. [PyKEEN 1.0: A Python Library for Training and Evaluating Knowledge Graph Embeddings](https://jmlr.org/papers/v22/20-825.html). JMLR.
+- (2020) M Schmitt, S Sharifzadeh, V Tresp, H Schütze. [An Unsupervised Joint System for Text Generation from Knowledge Graphs and Semantic Parsing](https://aclanthology.org/2020.emnlp-main.577/). EMNLP.
+- (2020) M KaramiNejadRanjbar, S Sharifzadeh, et al. [A Highly Accurate Platform for Clone-Specific Mutation Discovery Enables the Study of Active Mutational Processes](https://elifesciences.org/articles/55207). eLife.
+- (2019) V Tresp, S Sharifzadeh, D Konopatzki. [A Model for Perception and Memory](https://web.archive.org/web/20191208010033/https://ccneuro.org/2019/Papers/ViewPapers.asp?PaperNum=1264). CCN.
+- (2017) A Kicherer, M Klodt, S Sharifzadeh, D Cremers, R Töpfer, K Herzog. [Automatic Image-Based Determination of Pruning Mass as a Determinant for Yield Potential in Grapevine Management and Breeding](https://doi.org/10.1111/ajgw.12243). Australian Journal of Grape and Wine Research. Role: Stereo 3D Reconstruction.
+- (2016) S Sharifzadeh, I Chiotellis, R Triebel, D Cremers. [Learning to Drive using Inverse Reinforcement Learning and Deep Q-Networks](https://arxiv.org/abs/1612.03653). NeurIPS Workshop on Deep Learning for Action and Interaction. Role: First Author.
+- (2016) S Sharifzadeh, SA Ahmadi, F Milletari, N Navab. Intra-operative Ultrasound-Based Brain-Shift Compensation Towards Robotic Image-Based Neurosurgery. 3rd Human Brain Project Education Workshop on Future Computing. Role: First Author.
+- (2012–2013) A Keipour, S Sharifzadeh, E Babaians, et al. RobX & SUT Service Delivery Robots League Team Description Papers. AUTCup & Khwarizmi International Robotic Competitions (@Home League).
+
+## Honors & awards
+- (2016) Human Brain Project Workshop on Future Computing: European Commission Certification & Speaker (Manchester & Graz).
+- (2013 – 2016) TUM Scholarship for International Students (Merit-Based): Awarded three times by Technische Universität München based on academic achievement.
+- (2013) 1st Place — ACM UIST Student Innovation Contest: Ranked 1st in the Usefulness Category (Team TUM IN), Cool Print Project.
+- (2012) 1st Place — International AUTCup Robotic Competition (@Home League): Team Sharif University of Technology (SUT).
+- (2009) 12th Place — ACM ICPC Asia Regional Contest: ACM International Collegiate Programming Contest, Asia Regional, Tehran.
+- (2006 – 2007) 1st Place — Khwarizmi Youth Innovation Award (Tehran): 2007: 1st Place for the GooyaSaz Project — Persian OCR and text-to-speech software for blind people. 2006: 1st Place for the Guard Robot Project — mobile robot for industrial safety applications.
+
+Last updated: 2026-10-31

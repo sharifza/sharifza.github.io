@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Looped Transformers: A Visual Model and Looped LLMs · Sahand Sharifzadeh</title>
+<meta name="description" content="Explore looped Transformers through Classification by Attention (2020): shared weights, schema feedback, and a precise comparison with Meta’s looped LLM research." /><meta name="author" content="Sahand Sharifzadeh" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+<link rel="canonical" href="https://sharifza.github.io/blog/classification-by-attention/" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="Profile and research writing" />
+<link rel="icon" href="/favicon.ico" sizes="48x48" /><link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fbfaf8" /><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111113" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Sahand Sharifzadeh" />
+<meta property="og:title" content="A Looped Transformer for Scene Understanding, Six Years Later" />
+<meta property="og:description" content="Explore looped Transformers through Classification by Attention (2020): shared weights, schema feedback, and a precise comparison with Meta’s looped LLM research." />
+<meta property="og:url" content="https://sharifza.github.io/blog/classification-by-attention/" />
+<meta property="og:image" content="https://sharifza.github.io/assets/looped-transformer-social-dark.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="A Looped Transformer for Scene Understanding, Six Years Later by Sahand Sharifzadeh" />
+<meta property="article:published_time" content="2026-10-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2026-10-31T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" /><meta name="twitter:site" content="@sahandsharif" />
+<meta name="twitter:title" content="A Looped Transformer for Scene Understanding, Six Years Later" /><meta name="twitter:description" content="Explore looped Transformers through Classification by Attention (2020): shared weights, schema feedback, and a precise comparison with Meta’s looped LLM research." /><meta name="twitter:image" content="https://sharifza.github.io/assets/looped-transformer-social-dark.jpg" />
+<script>(function(){var t=null;try{t=localStorage.getItem('ss-theme');}catch(e){}if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;})();</script>
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin /><link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="/styles.css?v=1772965b" /><link rel="stylesheet" href="/blog/blog.css?v=ce2cf4f6" />
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "BlogPosting", "@id": "https://sharifza.github.io/blog/classification-by-attention/#article", "url": "https://sharifza.github.io/blog/classification-by-attention/", "name": "A Looped Transformer for Scene Understanding, Six Years Later", "description": "Explore looped Transformers through Classification by Attention (2020): shared weights, schema feedback, and a precise comparison with Meta’s looped LLM research.", "author": {"@type": "Person", "@id": "https://sharifza.github.io/#person", "name": "Sahand Sharifzadeh", "url": "https://sharifza.github.io/"}, "inLanguage": "en", "headline": "A Looped Transformer for Scene Understanding, Six Years Later", "datePublished": "2026-10-31", "dateModified": "2026-10-31", "image": ["https://sharifza.github.io/assets/looped-transformer-social-dark.jpg"], "mainEntityOfPage": "https://sharifza.github.io/blog/classification-by-attention/", "isPartOf": {"@type": "Blog", "@id": "https://sharifza.github.io/blog/#blog", "url": "https://sharifza.github.io/blog/"}, "citation": ["https://arxiv.org/abs/2011.10084", "https://arxiv.org/abs/1807.03819", "https://arxiv.org/abs/2610.40325", "https://arxiv.org/abs/2502.05171", "https://arxiv.org/abs/2505.15778"], "about": [{"@type": "Thing", "name": "Looped Transformers"}, {"@type": "Thing", "name": "Scene graph classification"}, {"@type": "Thing", "name": "Test-time computation"}, {"@type": "Thing", "name": "Looped language models"}], "articleSection": ["What is a looped Transformer?", "Closing the loop", "How does this relate to looped LLMs?", "What overlaps with Meta’s looped Transformers?", "What travels around the loop?"]}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sharifza.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sharifza.github.io/blog/"}, {"@type": "ListItem", "position": 3, "name": "A Looped Transformer for Scene Understanding, Six Years Later", "item": "https://sharifza.github.io/blog/classification-by-attention/"}]}]</script>
+</head>
+<body>
+  <header class="b-header">
+    <div class="b-bar">
+      <a class="brand" href="/">Sahand Sharifzadeh</a>
+      <a class="crumb" href="/blog/">Blog</a>
+      <button id="theme-btn" class="icon-btn" type="button" aria-label="Switch light or dark theme" title="Theme"><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></button>
+    </div>
+  </header>
+
+  <main class="post">
+    <article>
+      <header class="col">
+        
+        <p class="kicker">Research retrospective</p>
+        <h1>A Looped Transformer for Scene Understanding, Six Years Later</h1>
+        <p class="dek">Classification by Attention (2020), shared weights, prediction feedback, and connections to today’s looped LLMs. An interactive walkthrough of my favourite paper.</p>
+        <div class="byline"><img src="/assets/portrait.webp" alt="" width="32" height="32" /><strong>Sahand Sharifzadeh</strong><time datetime="2026-10-31">31 October 2026</time><span>·</span><span>16 min read</span></div>
+      </header>
+
+      <div class="col prose">
+        <p style="margin-top:2em">There has been a lot more talk about looped Transformers on X and elsewhere lately. That discussion prompted me to revisit a paper that is still my favourite: Classification by Attention.</p>
+        <p>The recent FAIR at Meta study, <a href="https://arxiv.org/abs/2610.40325"><em>How to Loop Your Transformer</em></a>, explores where to place loops, when additional passes help, and how to make them practical for language models. That study is a useful contemporary reference point, not the same method. Our model refines a visual scene graph through predicted class embeddings, rather than carrying a language model’s full hidden state around the loop.</p>
+        <p>Nearly six years ago, on 19 November 2020, Sina Moayed Baharlou, Volker Tresp and I posted <a href="https://arxiv.org/abs/2011.10084"><em>Classification by Attention: Scene Graph Classification with Prior Knowledge</em></a> to arXiv. It appeared at AAAI a few months later. It is the one I am proudest of writing: it took an idea from developmental psychology seriously, turned it into a few lines of linear algebra, and ended up with a loop I still find beautiful.</p>
+      </div>
+      <figure class="fig col loop-preview" id="loop-at-a-glance">
+        <div class="fig-card">
+          <div class="fig-head"><h3 class="fig-title">The idea in miniature</h3><button class="loop-preview-play" id="loop-preview-play" type="button" aria-pressed="false">Play the loop</button></div>
+          <div class="loop-preview-stages" id="loop-preview-stages" role="group" aria-label="A plain-language overview of prediction feedback">
+            <button type="button" data-stage="0" aria-pressed="true"><span class="lp-n">01</span><strong>Look</strong><span>Start with the image</span></button>
+            <button type="button" data-stage="1" aria-pressed="false"><span class="lp-n">02</span><strong>Predict</strong><span>Make a first guess</span></button>
+            <button type="button" data-stage="2" aria-pressed="false"><span class="lp-n">03</span><strong>Feed back</strong><span>Use those guesses</span></button>
+            <button type="button" data-stage="3" aria-pressed="false"><span class="lp-n">04</span><strong>Look again</strong><span>Run the same network</span></button>
+          </div>
+          <p class="loop-preview-repeat">↶ Then repeat from Predict</p>
+          <p id="loop-preview-note" class="loop-preview-note" aria-live="polite">The image provides the evidence. It stays the same throughout the loop.</p>
+          <a class="loop-preview-link" href="#closing-the-loop">Unpack the mechanism below ↓</a>
+        </div>
+        <figcaption>The model reads its predictions back into the scene and looks again. The same network runs on every pass, with the original image evidence retained. Below, we unpack what gets fed back and why.</figcaption>
+      </figure>
+      <div class="col prose">
+        <div class="claim"><p class="label">In one sentence</p>Classification by Attention (2020) is a looped graph Transformer for visual scene understanding: a weight-shared graph Transformer that classifies objects and relations by attending to learned class embeddings and feeds them back to refine the scene graph over repeated passes.</div>
+        <p>This post walks through that idea from the beginning. Every figure is interactive. Where a figure uses made-up numbers to show a mechanism, it says so. Results come from the paper; the per-assimilation curve is reconstructed from its published vector plot and labelled as approximate.</p>
+
+        <h2 id="what-is-a-looped-transformer">What is a looped Transformer?</h2>
+        <p>Recurrence and weight sharing long predate this paper. <a href="https://arxiv.org/abs/1807.03819">Universal Transformers</a> (2018), for example, already applied shared Transformer computation repeatedly. A <strong>looped Transformer</strong> applies the same Transformer block repeatedly, reusing its weights across passes instead of giving every stage a separate set of parameters. This separates the number of learned parameters from the amount of computation: the model can do more work by running the block again. Whether extra passes help is an empirical question, not a guarantee.</p>
+        <p>In looped language models, repeated computation is used to refine representations before producing text. In Classification by Attention, it refines a scene graph: the model predicts object and relation labels, maps those predictions back to learned class embeddings, and runs the same graph Transformer again. <strong>This is not an LLM.</strong> It is a visual model with a related computational pattern, and a particularly explicit view of what travels around the loop.</p>
+        <nav class="post-jumps" aria-label="Article highlights"><a href="#closing-the-loop">How the loop works</a> · <a href="#looped-llms">Looped LLMs</a> · <a href="#meta-looped-transformer-comparison">The Meta comparison</a> · <a href="#results-as-text">Results as text</a></nav>
+
+        <h2><span class="n">01</span>A bowl you cannot see</h2>
+        <p>Scene graph classification asks a model to label every object in an image and every relation between them, given their bounding boxes. The output is a set of triples such as <span class="m">(orange, in, bowl)</span>. The difficulty is that the same thing can look completely different from one image to the next. Lighting, viewpoint and, above all, occlusion can leave a box with almost no usable pixels.</p>
+        <p>People do not classify a hidden bowl from its pixels. We see oranges, we know oranges tend to sit in bowls, and the bowl becomes obvious.</p>
+        <p>To see where a network could learn that habit, it helps to split a scene graph classifier in two. A <em>backbone</em>, usually a convolutional network, looks at the pixels inside each box and turns them into a vector. A <em>relational</em> component then reasons over those vectors: objects and relations exchange information before each one is classified. Only the backbone needs pixels. The relational part sees nothing but vectors. They usually come from an image, but nothing says they must. That observation runs through the rest of this post.</p>
+      </div>
+
+      <figure class="fig wide" id="fig1">
+        <div class="fig-card f1">
+          <div class="fig-head"><h3 class="fig-title">Looking again at a hidden bowl</h3><span class="illus">Illustration</span></div>
+          <ol class="f1-steps" id="f1-steps" aria-label="Steps"></ol>
+          <div class="f1-grid">
+            <div class="f1-scene" id="f1-scene"></div>
+            <div class="f1-side">
+              <p class="f1-label">Scene graph · what the model believes</p>
+              <div id="f1-graph"></div>
+              <div id="f1-bars"></div>
+            </div>
+          </div>
+          <div class="f1-foot">
+            <p class="f1-note" id="f1-note" aria-live="polite"></p>
+            <div class="f1-nav">
+              <button class="btn-round" id="f1-prev" type="button" aria-label="Previous step"><svg viewBox="0 0 14 14"><path d="M9 2.5 4.5 7 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <button class="f1-next" id="f1-next" type="button">Next</button>
+            </div>
+          </div>
+        </div>
+        <figcaption><span class="fig-n">Figure 1.</span>Step through it. Box 2 is mostly hidden, so from pixels alone the model guesses plate. Each pass feeds back the schema of what the model is already sure about, and the guess changes although the pixels never do. <b>The probabilities are invented to show the mechanism;</b> the paper's Figure 5 shows real examples.</figcaption>
+      </figure>
+
+      <div class="col prose">
+        <p>Before our paper, the usual way to add this kind of knowledge was to keep it outside the perception model. Neural Motifs corrected predictions with dataset co-occurrence statistics; KERN routed messages along a statistical knowledge graph; other work trained knowledge graph embeddings on triples and multiplied their predictions into the classifier's. In each case the prior and the perception were separate components, trained on different inputs and fused in probability space. The prior could not see that a donkey looks like a horse, and the perception could not use what the prior knew.</p>
+
+        <h2><span class="n">02</span>Schemata</h2>
+        <p>Start with what the relational part would need. An image gives evidence about <em>this</em> bowl: its shape, its colour, what hides it. Knowledge is about bowls in general. To use it, the model needs a representation of each class rather than of one instance, and it needs that representation in the same space as the vectors coming from the image, so that the two can be compared and combined.</p>
+        <p>So give every class <span class="m">c</span> a learned vector <span class="m">s<sub>c</sub></span> in that space. We call it the class's <em>schema</em>. Where should those vectors come from? Every classifier already has one vector per class: the rows of its final layer. When that layer sits on top of contextualised representations, its weights end up encoding both how a class looks and which relations it takes part in. Classes that look alike or take part in similar relations land near each other, which is exactly the property knowledge graph embeddings are built for.</p>
+        <blockquote>So instead of training a separate prior, we made the classifier itself the prior.</blockquote>
+        <p>The name comes from Jean Piaget. He argued that we understand the world through <em>schemata</em>: mental representations of objects and concepts, formed by earlier experience and independent of any single scene. When we perceive something, we assign it to a schema, a process he called <em>assimilation</em>, and reasoning over schemata lets us predict what else should be true around the observation. Our network is far simpler than Piaget's theory, but it keeps the part we needed: one representation per concept, used both to recognise and to reason.</p>
+
+        <h2><span class="n">03</span>Classification is attention</h2>
+        <p>A classifier normally goes one way, from a representation to scores over classes. Its weights are used to compute those scores and never re-enter the computation. We wanted the schemata to work in both directions: to recognise a concept, and then to bring that concept back into the reasoning. Writing classification as attention gives us the way back.</p>
+        <p>A node's representation <span class="m">z<sub>i</sub></span> attends to every schema. The attention coefficients are the class probabilities, trained with an ordinary cross-entropy loss. The attention output is a new vector: the schemata, weighted by how much the model believes in each.</p>
+        <div class="eq"><i>α</i><sub><i>ic</i></sub> = softmax<sub><i>c</i></sub>(<i>z</i><sub><i>i</i></sub> · <i>s</i><sub><i>c</i></sub>)<span class="gap"></span><i>δ</i><sub><i>i</i></sub> = Σ<sub><i>c</i></sub> <i>α</i><sub><i>ic</i></sub> <i>s</i><sub><i>c</i></sub></div>
+        <p>The same vectors therefore do two jobs: representation, then class probabilities, then a class representation again. The vector <span class="m">δ<sub>i</sub></span> is the model's mental image of what node <span class="m">i</span> probably is. If it is sure the box is a bowl, <span class="m">δ<sub>i</sub></span> is the bowl schema. If it hesitates between a bowl and a plate, it is a blend of the two. Drag the point below to see this.</p>
+      </div>
+
+      <figure class="fig wide" id="fig2">
+        <div class="fig-card">
+          <div class="fig-head"><h3 class="fig-title">Classification as attention over schemata</h3><span class="illus">Illustration · 2-D</span></div>
+          <div class="f2-grid">
+            <div class="f2-plane" id="f2-plane"></div>
+            <div class="f2-read" id="f2-read"></div>
+          </div>
+        </div>
+        <figcaption><span class="fig-n">Figure 2.</span>Each dot is a schema <span class="m">s<sub>c</sub></span>. Drag <b>z</b>, a node's representation; the bars are the attention coefficients, which are also the class probabilities. The hollow diamond is <span class="m">δ</span>, the weighted mix of schemata the model will feed back. Moving <b>z</b> away from the origin makes the dot products larger and the distribution sharper. Real schemata live in hundreds of dimensions; here the dot product is scaled so the effect is visible in two.</figcaption>
+      </figure>
+
+      <div class="col prose">
+        <h2><span class="n">04</span>A scene is a graph</h2>
+        <p>The model works on a <em>scene representation graph</em>. Every object is a node, initialised from features pooled inside its box by a CNN backbone. Every candidate relation is a node too, initialised from the relative geometry of its two boxes, and connected only to its head and its tail. Treating predicates as nodes means objects and relations are classified by the same machinery and both get schemata.</p>
+        <p>We contextualise the graph with a Graph Transformer: each layer lets a node attend to its neighbours with multi-head attention, then applies a residual connection, layer normalisation and a feed-forward network. Four such layers form one block. Because attention follows the graph, a relation node hears only from the two objects it connects, and an object hears from the relations it takes part in.</p>
+      </div>
+
+      <figure class="fig wide" id="fig3">
+        <div class="fig-card">
+          <div class="fig-head"><h3 class="fig-title">Who attends to whom</h3><div class="seg" id="f3-mode" role="group" aria-label="Attention pattern"><button type="button" aria-pressed="true" data-v="graph">Graph Transformer</button><button type="button" aria-pressed="false" data-v="full">All-to-all</button></div></div>
+          <div class="f3-grid">
+            <div class="f3-graph" id="f3-graph"></div>
+            <div class="f3-side" id="f3-side"></div>
+          </div>
+        </div>
+        <figcaption><span class="fig-n">Figure 3.</span>Circles are objects; squares are relations, each linked to its head and tail. Tap any node to see what it attends to in one layer. A plain Transformer would let every node attend to every other node; restricting attention to the graph is what makes this a graph Transformer.</figcaption>
+      </figure>
+
+      <div class="col prose">
+        <h2 id="closing-the-loop"><span class="n">05</span>Closing the loop</h2>
+        <p>Now the pieces fit together. The graph Transformer contextualises the nodes and the attention layer classifies them. The resulting mental images <span class="m">δ</span> are added back to the <em>original</em> image features, and the same four-layer block runs again.</p>
+        <div class="eq"><i>u</i><sub><i>i</i></sub> = LN(<i>x</i><sub><i>i</i></sub> + <i>δ</i><sub><i>i</i></sub>)<span class="gap"></span><i>z</i><sub><i>i</i></sub><sup>(0, <i>t</i>+1)</sup> = LN(<i>u</i><sub><i>i</i></sub> + <i>g</i>(<i>u</i><sub><i>i</i></sub>))</div>
+        <p>We called one trip around this loop an <em>assimilation</em>. Two design choices matter. First, <span class="m">δ</span> is fused with the image features <span class="m">x</span>, not with the previous output, so the evidence from pixels never fades and representations do not accumulate drift. Second, every pass is supervised: the model is asked to classify after each assimilation, which makes this a multi-task problem in which later passes learn to use the predictions of earlier ones.</p>
+        <p>During training we used teacher forcing. The mental images were built from the ground-truth labels, with some of them dropped so the model could not simply copy them, which turns the task into denoising an incomplete graph, much like link prediction. At test time the model uses its own soft predictions. The feedback is detached from the gradient: each pass learns from its own loss, with the weights shared across passes. What travels around the loop is a prediction, mapped back into embedding space, not a hidden state.</p>
+      </div>
+
+      <figure class="fig wide" id="fig4">
+        <div class="fig-card">
+          <div class="fig-head"><h3 class="fig-title">One assimilation, then another</h3>
+            <div class="ctrls"><div class="seg" id="f4-mode" role="group" aria-label="Phase"><button type="button" aria-pressed="false" data-v="train">Training</button><button type="button" aria-pressed="true" data-v="test">Test</button></div>
+            <button class="btn-round" id="f4-play" type="button" aria-label="Pause"><svg viewBox="0 0 14 14"><path d="M3.5 2h2.5v10H3.5zM8 2h2.5v10H8z" fill="currentColor"/></svg></button></div></div>
+          <div class="f4-svg" id="f4-svg"></div>
+          <div class="f4-foot">
+            <div><div class="passes" id="f4-passes"></div><div class="pass-legend" style="margin-top:8px"><span>trained</span><span class="t">test only</span></div></div>
+            <div class="f4-readout" id="f4-readout" aria-live="polite"></div>
+          </div>
+        </div>
+        <figcaption><span class="fig-n">Figure 4.</span>The loop as described in the paper. The same graph Transformer block, with the same weights, runs on every pass. We trained with four assimilations and evaluated with up to eight: accuracy kept improving after each pass, with smaller changes towards the end. Switch to <b>Training</b> to see what is fed back during learning.</figcaption>
+      </figure>
+
+      <div class="col prose">
+        <h2><span class="n">06</span>Why should this help?</h2>
+        <p>A fair objection: a graph Transformer is a universal function approximator, so in principle it could learn all of this from the image features alone. In practice, learning does not always find the best function, and the right inductive bias matters. Multi-task learning, in Rich Caruana's words, improves generalisation by using the information in related tasks as an inductive bias.</p>
+        <p>The comparison I find most useful is with sequence decoders. A Transformer decoder predicts each token conditioned on the input and on the tokens it has already produced, but never on future ones. Our model conditions every prediction on its previous predictions for <em>all</em> the other nodes. In that sense it is an encoder with a stack of decoders, each one reading the whole graph of earlier answers. A pleasant side effect is interpretability: because each pass outputs labels, you can watch exactly what the prior changed and why.</p>
+
+        <h2><span class="n">07</span>What it did</h2>
+        <p>We trained on the standard split of Visual Genome, with 150 object classes and 50 predicate classes, about 11.5 objects and 6.2 relations per image. The most direct test of the loop is an ablation: keep the model fixed and measure scene graph classification after each assimilation. The early passes help most; later passes continue to improve recall, but by progressively smaller amounts.</p>
+      </div>
+
+      <figure class="fig wide" id="fig5">
+        <div class="fig-card assimilation">
+          <div class="fig-head"><h3 class="fig-title">Does another assimilation help?</h3>
+            <div class="seg" id="asm-constraint" role="group" aria-label="Graph constraint"><button type="button" aria-pressed="true" data-v="constrained">Constrained</button><button type="button" aria-pressed="false" data-v="unconstrained">Unconstrained</button></div>
+          </div>
+          <p class="asm-sub">Scene graph classification · Recall (%) · zoomed vertical axis</p>
+          <div id="asm-chart" class="chart"></div>
+          <div class="legend asm-legend"><span><i style="background:var(--accent)"></i>Recall@100</span><span><i style="background:var(--muted)"></i>Recall@50 (dashed)</span></div>
+          <div class="asm-pass-control"><span>Inspect a pass</span><div id="asm-passes" role="group" aria-label="Assimilation pass"></div></div>
+          <p id="asm-readout" class="asm-readout" aria-live="polite"></p>
+          <details class="asm-values"><summary>Values and source</summary>
+            <div class="asm-table-wrap" id="asm-values"></div>
+            <p>Values reconstructed from the vector paths and calibrated axes of <a href="https://arxiv.org/pdf/2011.10084#page=5">Figure 4 in the original paper</a>, rounded to 0.01 percentage point. They are approximate readings of the published plot, not recovered experiment logs. <a href="assimilation-results.json">Download data and provenance</a>.</p>
+          </details>
+        </div>
+        <figcaption><span class="fig-n">Figure 5.</span>Measured scene graph classification recall after each assimilation, redrawn from the paper’s Figure 4. <b>The model was trained with four passes and evaluated with up to eight.</b> The shaded region marks passes 5–8, beyond the training depth. Constrained permits one predicate per object pair; unconstrained permits multiple predicates. The vertical axis is zoomed to make the small changes visible. These are <b>recall</b> curves, not the mean-recall comparison below. Recovered values are approximate.</figcaption>
+      </figure>
+
+      <details class="historical-results wide" id="historical-results">
+        <summary>Historical context: mean recall against other methods</summary>
+        <p class="historical-intro">The predicate distribution is long-tailed. Mean recall averages recall over predicate classes so rare relations count as much as frequent ones. This is a different metric from the per-assimilation recall curves above.</p>
+      <figure class="fig wide" id="fig5-history">
+        <div class="fig-card">
+          <div class="fig-head"><h3 class="fig-title">Mean recall on Visual Genome</h3>
+            <div class="ctrls"><div class="seg" id="f5-task" role="group" aria-label="Task"><button type="button" aria-pressed="true" data-v="sg">SGCls</button><button type="button" aria-pressed="false" data-v="pred">PredCls</button></div><div class="seg" id="f5-k" role="group" aria-label="K"><button type="button" aria-pressed="false" data-v="50">@50</button><button type="button" aria-pressed="true" data-v="100">@100</button></div><div class="seg" id="f5-c" role="group" aria-label="Graph constraint"><button type="button" aria-pressed="true" data-v="c">Constrained</button><button type="button" aria-pressed="false" data-v="u">Unconstrained</button></div></div></div>
+          <div class="chart" id="f5-chart"></div>
+        </div>
+        <figcaption><span class="fig-n">Historical comparison.</span>Mean recall (mR@K, %) from Table 1 of the paper, all with the same VGG-16 backbone. SGCls predicts objects and relations given boxes; PredCls predicts relations given boxes and object labels. Constrained allows one predicate per pair. GB-Net (ECCV 2020), published around the same time and not in our comparison, reported higher constrained SGCls mean recall when trained with a class-balanced loss.</figcaption>
+      </figure>
+      </details>
+
+      <div class="col prose">
+        <p>The paper’s separate class-wise analysis found the largest gains on under-represented predicates, suggesting that the model was doing more than reflecting the dataset’s statistical bias. The qualitative examples are what convinced me. A sidewalk first misclassified as a street was corrected once the model had seen a biker and a man sitting on a chair. A wheel that was almost completely occluded was recovered because trucks have wheels. A man facing away from the camera was recognised from his arm, pants, shirt and skateboard.</p>
+
+        <h2><span class="n">08</span>Knowledge without images</h2>
+        <p>Go back to the split from the beginning. The backbone needs pixels; the relational part only needs vectors. Because the schemata live in the same space as image features, the relational part can be given schemata instead of features and will treat them as a scene. That opens two different uses, and it is worth keeping them apart.</p>
+        <p><strong>Reading knowledge out.</strong> Give the model only the schemata of a head and a tail, with zero image features, and it predicts the likely predicate between them, much like a knowledge graph embedding model. It had learned a probabilistic knowledge graph of commonsense from perception alone.</p>
+        <p><strong>Writing knowledge in.</strong> The same interface lets the model learn relations from triples that come with no images. Each triple becomes a small graph whose objects are their schemata and whose relation is hidden, and the model learns to recover it, much like link prediction. We simulated this by keeping the labels of only 1% or 10% of the training images and treating the remaining labels as an external knowledge base of triples, combined with a backbone pretrained with self-supervised learning (BYOL).</p>
+        <p>For predicates, this nearly closed the gap to full supervision. Recognising the objects themselves still depends on pixels, so full scene graph classification recovered much less: triples can teach which relations hold, but not what a bowl looks like.</p>
+      </div>
+
+      <figure class="fig wide" id="fig6">
+        <div class="fig-card">
+          <div class="fig-head"><h3 class="fig-title">Learning from few labelled images</h3>
+            <div class="seg" id="f6-task" role="group" aria-label="Task"><button type="button" aria-pressed="true" data-v="pred">PredCls</button><button type="button" aria-pressed="false" data-v="sg">SGCls</button><button type="button" aria-pressed="false" data-v="obj">Objects</button></div></div>
+          <div class="chart" id="f6-chart"></div>
+          <div class="legend" id="f6-legend"></div>
+        </div>
+        <figcaption><span class="fig-n">Figure 6.</span>Recall@100 (objects: accuracy) from Table 2 of the paper, ResNet-50 backbone. Points at 1% and 10% are means over five random splits, with whiskers for one standard deviation; 100% is a single run. With 1% of labelled images and the remaining knowledge given as triples, predicate classification reached <b>65.68</b>, against <b>65.7</b> with every label. Scene graph classification, which also has to recognise the objects, reached 15.36 against 37.1.</figcaption>
+      </figure>
+
+      <div class="col prose">
+        <details id="results-as-text" class="results-text"><summary>Read the key results without the interactive charts</summary>
+          <p>The figures above report Visual Genome results, not language-model benchmarks. SGCls predicts object and relation labels given boxes; PredCls is given the object labels too. R@100 is recall among the top 100 predictions; mR@100 averages recall across predicate classes.</p>
+          <ul><li>With a VGG-16 backbone, Schemata achieved constrained SGCls mR@100 of 10.9 and PredCls mR@100 of 20.7; the corresponding unconstrained values were 28.8 and 54.9 (paper Table 1).</li>
+          <li>With 1% of image labels, BYOL pretraining and image-free triples, PredCls R@100 was 65.68 ± 0.12, versus 65.7 with full labels. SGCls R@100 was 15.36 ± 0.38, versus 37.1, and object accuracy was 42.09 ± 0.65, versus 68.4 (paper Table 2). The 1% values are means and standard deviations over five random splits; full-label values are single runs.</li>
+          <li>The model was trained with four assimilation passes and evaluated with up to eight. Approximate values reconstructed from Figure 4: constrained SGCls R@100 rose from 38.85 at pass 1 to 39.70 at pass 4 and 39.80 at pass 8; unconstrained R@100 rose from 51.03 to 51.93 and 52.12. Early passes contributed most of the improvement; extra passes beyond training depth added smaller gains. Extra passes do not add new block weights.</li></ul>
+          <p>The occluded-bowl and two-dimensional schema demonstrations use illustrative values, not measured predictions. The graph-connectivity demonstration illustrates the model structure.</p>
+        </details>
+      </div>
+
+      <div class="col prose">
+        <h2 id="looped-llms"><span class="n">09</span>How does this relate to looped LLMs?</h2>
+        <p>Vision Transformers appeared on arXiv four weeks before our paper. They made the opposite bet: no hand-built structure, just patches, attention and scale. That bet won the backbone. But several ideas in Classification by Attention have since become active research directions in their own right, and rereading the paper today, they stand out.</p>
+        <p><strong>Shared weights across depth.</strong> Classification by Attention reuses one four-layer graph Transformer block across assimilation passes. The later papers <a href="https://arxiv.org/abs/2301.13196">Looped Transformers as Programmable Computers</a> and <a href="https://arxiv.org/abs/2311.12424">Looped Transformers are Better at Learning Learning Algorithms</a> study what repeated application of a shared Transformer can compute and learn. The common idea is additional computation without an additional set of block weights at every pass, not identical architectures or tasks.</p>
+        <p><strong>More passes at inference.</strong> We trained with four assimilations and evaluated with up to eight. Additional passes improved scene classification, with diminishing changes. Modern work such as <a href="https://arxiv.org/abs/2502.05171">Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach</a> explores repeated latent computation for language-model reasoning. Our small visual experiment is not evidence that the same scaling behaviour holds for LLMs, but it makes the distinction between training depth and inference depth concrete.</p>
+        <p><strong>Soft feedback rather than a sampled label.</strong> Our test-time feedback is a probability-weighted mixture of learned class embeddings. <a href="https://arxiv.org/abs/2505.15778">Soft Thinking</a> explores a related idea in language models: feeding back a soft mixture of token embeddings rather than committing to a sampled token. That is a connection in the feedback representation, not a claim that the methods are the same.</p>
+        <h3 id="meta-looped-transformer-comparison">What overlaps with Meta’s looped Transformers?</h3>
+        <p>The recent FAIR at Meta paper, <a href="https://arxiv.org/abs/2610.40325"><em>How to Loop Your Transformer: Loop Scaling, Specialization, and Parallel Inference</em></a>, studies which components to repeat, how many loops to use, and how these choices trade parameter storage against training compute and inference efficiency. It offers a useful comparison in two specific respects.</p>
+        <p><strong>Reusing a stack.</strong> Our four graph Transformer layers have different weights within the stack, but the entire stack is reused across assimilation passes. That corresponds structurally to their stack-looping family, rather than repeatedly applying each individual layer before advancing. The shared principle is additional computation without another complete set of Transformer weights.</p>
+        <p><strong>Staying anchored to the input.</strong> Each CbA pass combines schema feedback with the original image features, rather than simply accumulating previous Transformer outputs. Meta’s section 3.4 also finds benefits from reinjecting the original token embedding. Both designs retain access to the original evidence, but the fusion mechanisms differ: we normalize after adding image features and schema feedback; their improved variants separately RMS-normalize the token embedding and recurrent state before mixing them.</p>
+        <h3 id="prediction-feedback-vs-hidden-state">What travels around the loop?</h3>
+        <p>This is the crucial distinction. Our model first predicts probabilities over object and relation classes, then uses those probabilities to construct a weighted mixture of learned class embeddings, the schemata. That mixture is combined with the original visual features and passed through the shared graph Transformer again. <strong>The feedback is an interpretation of the scene expressed through class embeddings, not the entire previous hidden state.</strong> The classifier’s own class vectors become the interface between recognition and further reasoning.</p>
+        <p>The ordinary looped language models studied by Meta instead pass continuous hidden representations between iterations. Their parallel variants additionally shift information across adjacent token positions so that loop stages can run concurrently during autoregressive decoding. Our scene-graph model has no such cross-token decoding mechanism, and it does not investigate their loop-specific adapters or parameter-, data- and FLOP-budget comparisons.</p>
+        <p>Training also differs from a hidden-state loop trained end to end through all iterations. CbA uses teacher-forced labels during training; the released implementation detaches the schema feedback, so gradients do not propagate through the full outer loop. At test time it uses its own soft predictions. These details matter when comparing the mechanism with latent reasoning or chain-of-thought.</p>
+        <h3 id="cba-contribution">The contribution in its own setting</h3>
+        <p>Recurrence and weight sharing were established ideas before our work, including in <a href="https://arxiv.org/abs/1807.03819">Universal Transformers</a>. Our contribution was a particular combination for visual scene understanding: graph-based contextualization, classification as attention over learned schemata, and prediction-mediated feedback through those same schemata. Their shared representational interface also lets the model learn relational knowledge from triples without additional images.</p>
+        <p>The connection to the newer work is architectural, not a claim of identical methods or direct influence. What makes it interesting is that some of the same design questions recur: what should travel around the loop, and how should each pass retain access to the original evidence?</p>
+        <p>If I wrote it today, I would let gradients flow through the loop, let the model decide how many passes it needs, and try the mechanism on a modern backbone at scale. I would keep the schemata exactly as they are.</p>
+      </div>
+
+      <figure class="fig col" id="fig7">
+        <div class="fig-card">
+          <div class="fig-head"><h3 class="fig-title">The surrounding years</h3></div>
+          <ol class="tl">
+            <li><span class="d">Oct 2020</span><span class="t"><a href="https://arxiv.org/abs/2010.11929">Vision Transformer</a><small>Pure Transformer on image patches</small></span></li>
+            <li class="us"><span class="d">Nov 2020</span><span class="t">Classification by Attention<small>arXiv, 19 November; AAAI 2021</small></span></li>
+            <li><span class="d">Jan 2023</span><span class="t"><a href="https://arxiv.org/abs/2301.13196">Looped Transformers as Programmable Computers</a><small>Giannou et al.</small></span></li>
+            <li><span class="d">Nov 2023</span><span class="t"><a href="https://arxiv.org/abs/2311.12424">Looped Transformers are Better at Learning Learning Algorithms</a><small>Yang et al.</small></span></li>
+            <li><span class="d">Feb 2025</span><span class="t"><a href="https://arxiv.org/abs/2502.05171">Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach</a><small>Geiping et al.</small></span></li>
+            <li><span class="d">May 2025</span><span class="t"><a href="https://arxiv.org/abs/2505.15778">Soft Thinking</a><small>Probability-weighted concept tokens, Zhang et al.</small></span></li>
+            <li class="us"><span class="d">Oct 2026</span><span class="t">Nearly six years on<small>This post</small></span></li>
+          </ol>
+        </div>
+      </figure>
+
+      <div class="col prose">
+        <h2><span class="n">10</span>Thanks, and the paper</h2>
+        <p>Thank you to Sina, who worked on this as a visiting researcher in Munich, and to Volker, who encouraged us to take cognitive theories seriously as engineering ideas. And thank you to everyone who argued with us about schemata over coffee.</p>
+        <div class="links">
+          <a href="https://arxiv.org/abs/2011.10084">Paper (arXiv)</a>
+          <a href="https://ojs.aaai.org/index.php/AAAI/article/view/16636">AAAI 2021</a>
+          <a href="https://github.com/sharifza/schemata">Code</a>
+        </div>
+        <div class="cite" style="margin-top:1.6em">
+          <button class="copy" id="copy-bib" type="button">Copy BibTeX</button>
+<pre id="bib">@inproceedings{sharifzadeh2021classification,
+  title     = {Classification by Attention: Scene Graph
+               Classification with Prior Knowledge},
+  author    = {Sharifzadeh, Sahand and Moayed Baharlou, Sina
+               and Tresp, Volker},
+  booktitle = {Proceedings of the AAAI Conference on
+               Artificial Intelligence},
+  volume    = {35}, number = {6}, pages = {5025--5033},
+  year      = {2021},
+  doi       = {10.1609/aaai.v35i6.16636}
+}</pre>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer"><div class="container foot"><div><p class="foot-name">Sahand Sharifzadeh <span lang="fa" dir="rtl">سهند شریف زاده</span></p><p class="foot-sub">Staff Research Scientist · Gemini Team · Google DeepMind · London, United Kingdom</p></div></div></footer>
+  <script src="/blog/classification-by-attention/cba.js?v=d1fd2106"></script>
+</body>
+</html>
